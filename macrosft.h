@@ -6,7 +6,7 @@
 /*   By: olkovale <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/09 04:43:07 by olkovale          #+#    #+#             */
-/*   Updated: 2017/07/09 04:43:07 by olkovale         ###   ########.fr       */
+/*   Updated: 2017/07/09 07:31:05 by olkovale         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,10 +43,6 @@
 # define MX6(a,b,c,d,e,f) (MX5(a,b,c,d,e)>f?MX5(a,b,c,d,e):f)
 # define MX7(a,b,c,d,e,f,g) (MX6(a,b,c,d,e,f)>g?MX6(a,b,c,d,e,f):g)
 # define MX8(a,b,c,d,e,f,g,h) (MX7(a,b,c,d,e,f,g)>h?MX7(a,b,c,d,e,f,g):h)
-
-# define IF(cond, body) if(cond){body;}
-# define FOR(init, cond, counter, body) for(init; cond; counter){body;}
-# define NULLIF(cond) if (cond) return (NULL);
 
 # define ISSPACE(c) (c == ' ' || c == '\t' || c == '\n' || ISSPACE2(c))
 # define ISSPACE2(c) (c == '\r' || c == '\v' || c == '\f')
