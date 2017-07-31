@@ -9,7 +9,9 @@ And still others of these bypasses are marginally useful, allowing the use of fo
 On a more serious note, the norm hacks aside, there are some useful metaprogramming facilities in this little header collection. NULLCHECK and CHKALLOC are bread and butter.
 
 
-Alright, back to the memes:
+
+Alright, back to the memes...
+
 
 
 Palpatine: Did you ever hear the Tragedy of Darth Plagueis the Wise?
