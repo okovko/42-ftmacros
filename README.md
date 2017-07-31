@@ -1,3 +1,17 @@
+C macros are essentially lambda calculus. Lambda calculus can be used to solve any programming problem. Naturally, we can bypass 42's norm using C macros then (:
+
+Some of these bypasses are very useful, like using VAR to declare and initialize variables anywhere in your functions on one line.
+
+Others of these bypasses, such as the method for getting around the 25 line per function limit, are meant to be more of monstrous jokes to look at, for anyone in the mood for weeping.
+
+And still others of these bypasses are marginally useful, allowing the use of for loops, do while loops, nested ternaries, gotos, and inline assembly.
+
+On a more serious note, the norm hacks aside, there are some useful metaprogramming facilities in this little header collection. NULLCHECK and CHKALLOC are bread and butter.
+
+
+Alright, back to the memes:
+
+
 Palpatine: Did you ever hear the Tragedy of Darth Plagueis the Wise?
 
 Anakin: No.
