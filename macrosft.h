@@ -6,7 +6,7 @@
 /*   By: olkovale <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/09 04:43:07 by olkovale          #+#    #+#             */
-/*   Updated: 2017/07/31 01:47:51 by olkovale         ###   ########.fr       */
+/*   Updated: 2017/08/07 00:20:52 by olkovale         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -131,7 +131,7 @@
 
 # define MIN(...) EXP(VMAC(MIN, __VA_ARGS__))
 # define MIN1(a,...) (a)
-# define MIN2(a,...) (a < b ? a : b)
+# define MIN2(a,...) (MIN1(__VA_ARGS__) < a ? MIN1(__VA_ARGS__) : a)
 # define MIN3(a,...) (MIN2(__VA_ARGS__) < a ? MIN2(__VA_ARGS__) : a)
 # define MIN4(a,...) (MIN3(__VA_ARGS__) < a ? MIN3(__VA_ARGS__) : a)
 # define MIN5(a,...) (MIN4(__VA_ARGS__) < a ? MIN4(__VA_ARGS__) : a)
@@ -196,7 +196,7 @@
 
 # define MAX(...) EXP(VMAC(MAX, __VA_ARGS__))
 # define MAX1(a,...) (a)
-# define MAX2(a,...) (a > b ? a : b)
+# define MAX2(a,...) (MAX1(__VA_ARGS__) > a ? MAX1(__VA_ARGS__) : a)
 # define MAX3(a,...) (MAX2(__VA_ARGS__) > a ? MAX2(__VA_ARGS__) : a)
 # define MAX4(a,...) (MAX3(__VA_ARGS__) > a ? MAX3(__VA_ARGS__) : a)
 # define MAX5(a,...) (MAX4(__VA_ARGS__) > a ? MAX4(__VA_ARGS__) : a)
@@ -414,14 +414,13 @@
 # define LOOP(...) EXP(for (;;) { DO(__VA_ARGS__) })
 
 # define RET(ret) EXP(return (ret))
-# define RETIF(ret, cond) EXP(if (cond) return (ret))
+# define RETIF(ret, cond) EXP(if (cond) RET(ret))
 # define NULLIF(cond) EXP(RETIF(NULL, cond))
 # define NULLCHECK(...) EXP(RETIF(NULL, (NOT(AND(__VA_ARGS__)))))
 # define RNULLCHECK(ret, ...) EXP(RETIF(ret, (NOT(AND(__VA_ARGS__)))))
 # define FREE(...) EXP(APPLY(free, __VA_ARGS__))
-# define CHKALLOC(...) EXP(IF(CHKALLOC_COND), CHKALLOC_WORK)
-# define CHKALLOC_COND NOT(AND(__VA_ARGS__))
-# define CHKALLOC_WORK FREE(__VA_ARGS__), RET(NULL)
+# define CHKALLOC(...) EXP(IF(NOT(AND(__VA_ARGS__)), CHKALLOC2(__VA_ARGS__)))
+# define CHKALLOC2(...) FREE(__VA_ARGS__), RET(NULL)
 
 # define ISSPACE(c) (c == ' ' || c == '\t' || c == '\n' ISSPACE2(c)
 # define ISSPACE2(c) || c == '\r' || c == '\v' || c == '\f')
